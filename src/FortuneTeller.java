@@ -48,10 +48,13 @@ public class FortuneTeller {
 			}
 		} while (!userColorRecieved);
 
+		System.out.println("Please enter your number of sibling(s) (as an integer): ");
+		int userSiblingCount = input.nextInt();
+		
 		System.out.println();
 		System.out.println(
 				userFirstName + " " + userLastName + " will retire in " + userAge + "years with " + userBirthMonth
-						+ " in the bank,\r\n" + "a vacation home in *[location]*, and travel by " + userColor + ".");
+						+ " in the bank,\r\n" + "a vacation home in " + userSiblingCount + ", and travel by " + userColor + ".");
 
 		input.close();
 	}
