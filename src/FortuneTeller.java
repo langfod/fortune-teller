@@ -99,9 +99,21 @@ public class FortuneTeller {
 			break;
 		}
 		
+		double userBankBalance;
+		
+		if (userBirthMonth >= 1 && userBirthMonth <= 4) {
+			userBankBalance = 768345.45;
+		} else if (userBirthMonth > 4 && userBirthMonth <= 8) {
+			userBankBalance = 92678.15;
+		} else if (userBirthMonth > 9 && userBirthMonth <= 12) {
+			userBankBalance = 385.01;
+		} else {
+			userBankBalance = 0d;
+		}
+		
 		System.out.println();
 		System.out.println(
-				userFirstName + " " + userLastName + " will retire in " + userRetirementYears + " years with " + userBirthMonth
+				userFirstName + " " + userLastName + " will retire in " + userRetirementYears + " years with " + "$" + userBankBalance
 						+ " in the bank,\r\n" + "a vacation home in " + vacationLocation + ", and travel by " + userTransport + ".");
 
 		input.close();
