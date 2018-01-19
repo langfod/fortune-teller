@@ -13,21 +13,6 @@ public class FortuneTeller {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-<<<<<<< HEAD
-		
-		System.out.println("Please enter your First name: ");
-		String userFirstName = input.nextLine();
-		
-		System.out.println("Please enter your Last name: ");
-		String userLastName = input.nextLine();
-		
-		System.out.println("Please enter your age (as an integer): ");
-		int userAge = input.nextInt();
-		
-		System.out.println("Please enter your month of birth (as an integer 1-12): ");
-		int userBirthMonth = input.nextInt();
-		
-=======
 
 		System.out.print("Please enter your First name: ");
 		String userFirstName = input.nextLine();
@@ -41,26 +26,11 @@ public class FortuneTeller {
 		System.out.print("Please enter your month of birth (as an integer 1-12): ");
 		int userBirthMonth = input.nextInt();
 
->>>>>>> d5187fc
 		String userColor;
 		Boolean userColorRecieved = false;
 		do {
 			System.out.println("Please enter you favorite ROYGBIV color:");
 			System.out.println("(If you do not know your ROYGBIV color names type HELP)");
-<<<<<<< HEAD
-			userColor = input.next();
-			if (!userColor.equalsIgnoreCase("HELP")) {
-				userColorRecieved = true;
-			}
-			System.out.println("ROYGBIV colors are: Red, Orange, Yellow, Green, Blue, Indigo, Violet.\n");
-		} while (!userColorRecieved);
-
-		System.out.println();
-		System.out.println(userFirstName + " " + userLastName + " will retire in " + userAge + "years with " + userBirthMonth + " in the bank,\r\n" + 
-				"a vacation home in *[location]*, and travel by " + userColor + ".");	
-	
-	input.close();
-=======
 			userColor = input.next().trim().toLowerCase();
 			switch (userColor) {
 			case ("red"):
@@ -80,10 +50,11 @@ public class FortuneTeller {
 
 		System.out.println("Please enter your number of sibling(s) (as an integer): ");
 		int userSiblingCount = input.nextInt();
-
+		
+		
 		int NastyHRRetirementRulesOddAge = 17;
 		int NastyHRRetirementRulesEvenAge = 22;
-		int userRetirementYears = (userAge & 1) == 0 ? NastyHRRetirementRulesEvenAge : NastyHRRetirementRulesOddAge;
+		int userRetirementYears = (userAge&1) == 0 ? NastyHRRetirementRulesEvenAge : NastyHRRetirementRulesOddAge;
 
 		String vacationLocation;
 		if (userSiblingCount == 0) {
@@ -94,19 +65,18 @@ public class FortuneTeller {
 			vacationLocation = "Foam Lake, Saskatchewan";
 		} else if (userSiblingCount == 3) {
 			vacationLocation = "Dublin, Ireland";
-		} else if (userSiblingCount > 3) {
+		}else if (userSiblingCount > 3) {
 			vacationLocation = "Paris, France";
 		} else {
 			vacationLocation = "Batagaika crater, Sakha Republic";
 		}
-
+		
 		System.out.println();
-		System.out.println(userFirstName + " " + userLastName + " will retire in " + userRetirementYears
-				+ " years with " + userBirthMonth + " in the bank,\r\n" + "a vacation home in " + vacationLocation
-				+ ", and travel by " + userColor + ".");
+		System.out.println(
+				userFirstName + " " + userLastName + " will retire in " + userRetirementYears + " years with " + userBirthMonth
+						+ " in the bank,\r\n" + "a vacation home in " + vacationLocation + ", and travel by " + userColor + ".");
 
 		input.close();
->>>>>>> d5187fc
 	}
 
 }
