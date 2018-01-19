@@ -15,7 +15,7 @@ public class FortuneTeller {
 	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		
+
 		System.out.println("Welcome to the We Can {CODE} It Fortune Teller!");
 		System.out.println("Please answer some simple questions and your fortune will be told.");
 		System.out.println("You may type \"QUIT\" at any time to be a quitter.");
@@ -36,7 +36,6 @@ public class FortuneTeller {
 		if ("QUIT".equalsIgnoreCase(getAgeStr = input.nextLine()))
 			sayGoodbye();
 		int userAge = Integer.parseInt(getAgeStr);
-		
 
 		System.out.print("Please enter your month of birth (as an integer 1-12): ");
 		String getBirthMonth;
@@ -123,7 +122,6 @@ public class FortuneTeller {
 		}
 
 		double userBankBalance;
-
 		if (userBirthMonth >= 1 && userBirthMonth <= 4) {
 			userBankBalance = 768345.45;
 		} else if (userBirthMonth > 4 && userBirthMonth <= 8) {
@@ -135,7 +133,6 @@ public class FortuneTeller {
 		}
 
 		NumberFormat nf = new DecimalFormat("$#,##0.00");
-		
 		System.out.println();
 		System.out.println(userFirstName + " " + userLastName + " will retire in " + userRetirementYears
 				+ " years with " + nf.format(userBankBalance) + " in the bank,\r\n" + "a vacation home in "
