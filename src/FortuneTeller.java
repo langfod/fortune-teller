@@ -14,21 +14,33 @@ public class FortuneTeller {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("Please enter your First name: ");
+		System.out.println("Please enter your First name: ");
 		String userFirstName = input.nextLine();
 		
-		System.out.print("Please enter your Last name: ");
+		System.out.println("Please enter your Last name: ");
 		String userLastName = input.nextLine();
 		
-		System.out.print("Please enter your age (as an integer): ");
+		System.out.println("Please enter your age (as an integer): ");
 		int userAge = input.nextInt();
 		
-		System.out.print("Please enter your month of birth (as an integer 1-12): ");
+		System.out.println("Please enter your month of birth (as an integer 1-12): ");
 		int userBirthMonth = input.nextInt();
 		
+		String userColor;
+		Boolean userColorRecieved = false;
+		do {
+			System.out.println("Please enter you favorite ROYGBIV color:");
+			System.out.println("(If you do not know your ROYGBIV color names type HELP)");
+			userColor = input.next();
+			if (!userColor.equalsIgnoreCase("HELP")) {
+				userColorRecieved = true;
+			}
+			System.out.println("ROYGBIV colors are: Red, Orange, Yellow, Green, Blue, Indigo, Violet.\n");
+		} while (!userColorRecieved);
+
 		System.out.println();
 		System.out.println(userFirstName + " " + userLastName + " will retire in " + userAge + "years with " + userBirthMonth + " in the bank,\r\n" + 
-				"a vacation home in *[location]*, and travel by *[mode of transporation]*.");	
+				"a vacation home in *[location]*, and travel by " + userColor + ".");	
 	
 	input.close();
 	}
