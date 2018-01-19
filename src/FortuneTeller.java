@@ -31,8 +31,8 @@ public class FortuneTeller {
 		do {
 			System.out.println("Please enter you favorite ROYGBIV color:");
 			System.out.println("(If you do not know your ROYGBIV color names type HELP)");
-			userColor = input.next().trim().toLowerCase();
-			switch (userColor) {
+			userColor = input.next().trim();
+			switch (userColor.toLowerCase()) {
 			case ("red"):
 			case ("orange"):
 			case ("yellow"):
@@ -71,10 +71,38 @@ public class FortuneTeller {
 			vacationLocation = "Batagaika crater, Sakha Republic";
 		}
 		
+		String userTransport;
+		switch (userColor.toLowerCase()) {
+		case ("red"):
+			userTransport = "Red Flyer";
+			break;
+		case ("orange"):
+			userTransport = "Citroen";
+			break;
+		case ("yellow"):
+			userTransport = "Pomacea bridgesii";
+			break;
+		case ("green"):
+			userTransport = " C-9B Skytrain II";
+			break;
+		case ("blue"):
+			userTransport = "Corolla";
+			break;
+		case ("indigo"):
+			userTransport = "Tata Indigo";
+			break;
+		case ("violet"):
+			userTransport = " BMW R 1150 R";
+			break;
+		default:
+			userTransport = "Black Hole"; // This should not be reached 
+			break;
+		}
+		
 		System.out.println();
 		System.out.println(
 				userFirstName + " " + userLastName + " will retire in " + userRetirementYears + " years with " + userBirthMonth
-						+ " in the bank,\r\n" + "a vacation home in " + vacationLocation + ", and travel by " + userColor + ".");
+						+ " in the bank,\r\n" + "a vacation home in " + vacationLocation + ", and travel by " + userTransport + ".");
 
 		input.close();
 	}
