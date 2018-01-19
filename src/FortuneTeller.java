@@ -134,7 +134,7 @@ public class FortuneTeller {
 			userBankBalance = 0d;
 		}
 
-		NumberFormat nf = new DecimalFormat("$#,###.00");
+		NumberFormat nf = new DecimalFormat("$#,##0.00");
 		
 		System.out.println();
 		System.out.println(userFirstName + " " + userLastName + " will retire in " + userRetirementYears
