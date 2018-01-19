@@ -51,9 +51,14 @@ public class FortuneTeller {
 		System.out.println("Please enter your number of sibling(s) (as an integer): ");
 		int userSiblingCount = input.nextInt();
 		
+		
+		int NastyHRRetirementRulesOdd = 17;
+		int NastyHRRetirementRulesEven = 22;
+		int userRetirementYears = (userAge&1) == 0 ? NastyHRRetirementRulesEven : NastyHRRetirementRulesOdd;
+
 		System.out.println();
 		System.out.println(
-				userFirstName + " " + userLastName + " will retire in " + userAge + "years with " + userBirthMonth
+				userFirstName + " " + userLastName + " will retire in " + userRetirementYears + " years with " + userBirthMonth
 						+ " in the bank,\r\n" + "a vacation home in " + userSiblingCount + ", and travel by " + userColor + ".");
 
 		input.close();
