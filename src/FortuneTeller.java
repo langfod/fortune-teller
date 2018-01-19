@@ -23,8 +23,11 @@ public class FortuneTeller {
 		System.out.print("Please enter your age (as an integer): ");
 		int userAge = input.nextInt();
 		
+		System.out.print("Please enter your month of birth (as an integer 1-12): ");
+		int userBirthMonth = input.nextInt();
+		
 		System.out.println();
-		System.out.println(userFirstName + " " + userLastName + " will retire in " + userAge + " with *[bank balance]* in the bank,\r\n" + 
+		System.out.println(userFirstName + " " + userLastName + " will retire in " + userAge + "years with " + userBirthMonth + " in the bank,\r\n" + 
 				"a vacation home in *[location]*, and travel by *[mode of transporation]*.");	
 	
 	input.close();
