@@ -15,6 +15,11 @@ public class FortuneTeller {
 	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		
+		System.out.println("Welcome to the We Can {CODE} It Fortune Teller!");
+		System.out.println("Please answer some simple questions and your fortune will be told.");
+		System.out.println("You may type \"QUIT\" at any time to be a quitter.");
+		System.out.println();
 
 		System.out.print("Please enter your First name: ");
 		String userFirstName;// = input.nextLine();
