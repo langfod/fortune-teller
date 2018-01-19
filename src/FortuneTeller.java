@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /*
@@ -10,28 +12,39 @@ import java.util.Scanner;
  */
 
 public class FortuneTeller {
+	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
 
 		System.out.print("Please enter your First name: ");
-		String userFirstName = input.nextLine();
+		String userFirstName;// = input.nextLine();
+		if ("QUIT".equalsIgnoreCase(userFirstName = input.nextLine()))
+			sayGoodbye();
 
 		System.out.print("Please enter your Last name: ");
-		String userLastName = input.nextLine();
+		String userLastName;
+		if ("QUIT".equalsIgnoreCase(userLastName = input.nextLine()))
+			sayGoodbye();
 
 		System.out.print("Please enter your age (as an integer): ");
-		int userAge = input.nextInt();
+		String getAgeStr;
+		if ("QUIT".equalsIgnoreCase(getAgeStr = input.nextLine()))
+			sayGoodbye();
+		int userAge = Integer.parseInt(getAgeStr);
+		
 
 		System.out.print("Please enter your month of birth (as an integer 1-12): ");
-		int userBirthMonth = input.nextInt();
+		String getBirthMonth;
+		if ("QUIT".equalsIgnoreCase(getBirthMonth = input.nextLine()))
+			sayGoodbye();
+		int userBirthMonth = Integer.parseInt(getBirthMonth);
 
 		String userColor;
 		Boolean userColorRecieved = false;
 		do {
 			System.out.println("Please enter you favorite ROYGBIV color:");
 			System.out.println("(If you do not know your ROYGBIV color names type HELP)");
-			userColor = input.next().trim();
+			userColor = input.nextLine().trim();
 			switch (userColor.toLowerCase()) {
 			case ("red"):
 			case ("orange"):
@@ -42,6 +55,9 @@ public class FortuneTeller {
 			case ("violet"):
 				userColorRecieved = true;
 				break;
+			case ("quit"):
+				sayGoodbye();
+				break;
 			default:
 				System.out.println("ROYGBIV colors are: Red, Orange, Yellow, Green, Blue, Indigo, Violet.\n");
 				break;
@@ -49,12 +65,14 @@ public class FortuneTeller {
 		} while (!userColorRecieved);
 
 		System.out.println("Please enter your number of sibling(s) (as an integer): ");
-		int userSiblingCount = input.nextInt();
-		
-		
+		String getSiblingCountStr;
+		if ("QUIT".equalsIgnoreCase(getSiblingCountStr = input.nextLine()))
+			sayGoodbye();
+		int userSiblingCount = Integer.parseInt(getSiblingCountStr);
+
 		int NastyHRRetirementRulesOddAge = 17;
 		int NastyHRRetirementRulesEvenAge = 22;
-		int userRetirementYears = (userAge&1) == 0 ? NastyHRRetirementRulesEvenAge : NastyHRRetirementRulesOddAge;
+		int userRetirementYears = (userAge & 1) == 0 ? NastyHRRetirementRulesEvenAge : NastyHRRetirementRulesOddAge;
 
 		String vacationLocation;
 		if (userSiblingCount == 0) {
@@ -65,12 +83,12 @@ public class FortuneTeller {
 			vacationLocation = "Foam Lake, Saskatchewan";
 		} else if (userSiblingCount == 3) {
 			vacationLocation = "Dublin, Ireland";
-		}else if (userSiblingCount > 3) {
+		} else if (userSiblingCount > 3) {
 			vacationLocation = "Paris, France";
 		} else {
 			vacationLocation = "Batagaika crater, Sakha Republic";
 		}
-		
+
 		String userTransport;
 		switch (userColor.toLowerCase()) {
 		case ("red"):
@@ -95,12 +113,12 @@ public class FortuneTeller {
 			userTransport = " BMW R 1150 R";
 			break;
 		default:
-			userTransport = "Black Hole"; // This should not be reached 
+			userTransport = "Black Hole"; // This should not be reached
 			break;
 		}
-		
+
 		double userBankBalance;
-		
+
 		if (userBirthMonth >= 1 && userBirthMonth <= 4) {
 			userBankBalance = 768345.45;
 		} else if (userBirthMonth > 4 && userBirthMonth <= 8) {
@@ -110,13 +128,24 @@ public class FortuneTeller {
 		} else {
 			userBankBalance = 0d;
 		}
+
+		NumberFormat nf = new DecimalFormat("$#,###.00");
 		
 		System.out.println();
-		System.out.println(
-				userFirstName + " " + userLastName + " will retire in " + userRetirementYears + " years with " + "$" + userBankBalance
-						+ " in the bank,\r\n" + "a vacation home in " + vacationLocation + ", and travel by " + userTransport + ".");
+		System.out.println(userFirstName + " " + userLastName + " will retire in " + userRetirementYears
+				+ " years with " + nf.format(userBankBalance) + " in the bank,\r\n" + "a vacation home in "
+				+ vacationLocation + ", and travel by " + userTransport + ".");
 
+		sayGoodbye();
+
+	}
+
+	public static void sayGoodbye() {
+		System.out.println();
+		System.out.println("Thank you using the We Can {CODE} It Fortune Teller!");
+		System.out.println("Goodbye.");
 		input.close();
+		System.exit(0);
 	}
 
 }
